@@ -1,0 +1,22 @@
+@use "abstracts/variables" as *
+@use "abstracts/mixins" as *
+
+.header
+  color: $rose-900
+  @include edge-width
+  max-width: 800px
+
+  @include respond("desktop")
+    width: 100%
+    max-width: unset
+    margin-left: 24px
+    
+
+  .header__title
+    font-weight: $weight-bold
+    margin: $space-md 0
+
+    @include respond("desktop")
+      width: 100%
+
+

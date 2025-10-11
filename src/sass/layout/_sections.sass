@@ -1,0 +1,153 @@
+@use "abstracts/mixins" as *
+@use "abstracts/variables" as *
+
+.products
+  @include edge-width
+  display: flex
+  flex-direction: column
+  gap: $gap-md
+  margin-bottom: $space-md
+
+  @include respond("tablet")
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+
+  @include respond("desktop")
+    max-width: 620px
+    grid-template-columns: repeat(3, 1fr)
+
+.cart
+  @include edge-width
+
+  @include respond("desktop")
+    width: unset
+
+  .cart__container
+    background-color: #fff
+    padding: $standard-padding-all
+    border-radius: $radius-sm
+
+    .cart__title
+      color: $red
+      margin-bottom: 2.5rem
+    
+    .cart__figure
+      @include full
+      display: flex
+      flex-direction: column
+      align-items: center
+
+      img
+        margin-bottom: $space-sm
+
+      figcaption
+        font-size: $empty-cart-text
+        color: $rose-500
+        font-weight: $weight-semi-bold
+        margin-bottom: $space-sm
+        
+    .cart__list
+      
+      ul
+        list-style-type: none
+        margin-bottom: $space-md
+
+        .cart__item
+          display: flex
+          justify-content: space-between
+          align-items: center
+          padding: $cart-list-padding 0
+          border-bottom: 1px solid $rose-100
+
+          .cart__info
+            display: flex
+            flex-direction: column
+            gap: $cart-list-gap
+
+            .cart__name
+              font-size: $text-size-xsm
+              font-weight: $weight-semi-bold
+              color: $rose-900
+            
+            .cart__details
+              display: flex
+              justify-content: start
+              align-items: center
+              gap: $cart-list-gap
+
+              .cart__qty
+                font-size: $text-size-xsm
+                font-weight: $weight-semi-bold
+                color: $red
+
+              .cart__align
+                display: flex
+                justify-content: start
+                align-items: center
+                gap: $gap-sm
+                font-size: $text-size-xsm
+                
+
+                .cart__unit
+                  color: $rose-300
+                  font-weight: $weight-normal
+
+                .cart__total
+                  color: $rose-500
+                  font-weight: $weight-semi-bold
+
+          figure
+            display: block
+            padding: 0rem
+            border: 1px solid $rose-300
+            overflow: hidden
+            display: flex
+            justify-content: center
+            width: $icon-box
+            height: $icon-box
+            border-radius: 50%
+
+            img
+              width: $icon-size-sm
+
+        .cart__item:first-child
+          padding-top: 0
+
+    .cart__total-items
+      display: flex
+      justify-content: space-between
+      align-items: center
+      margin-bottom: 1rem
+
+      .cart__total-text
+        color: $rose-900
+        font-weight: $weight-normal
+        font-size: $order-total-cart-text
+
+      .cart__total-price
+        color: $rose-900
+        font-weight: $weight-bold
+        font-size: $text-size-lg
+
+    .cart__delivery
+      display: flex
+      justify-content: center
+      font-size: $order-total-cart-text
+      background-color: $rose-50
+      color: $rose-900
+      padding: $carbon-padding 0
+      border-radius: $radius-sm
+      margin-bottom: $space-md
+
+      b
+        font-weight: $weight-bold
+
+    .cart__button
+      @include full
+      padding: $cart-list-padding 0
+      border: none
+      background-color: $red
+      color: $rose-50
+      font-size: text-size-sm
+      font-weight: $weight-semi-bold
+      border-radius: $radius-full

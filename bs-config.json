@@ -1,0 +1,10 @@
+{
+	"server": {
+		"baseDir": "./"
+	},
+	"files": ["dist/**/*"],
+	"open": true,
+	"watch": true,
+	"notify": false,
+	"port": 8000
+}

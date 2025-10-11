@@ -1,0 +1,21 @@
+@use "abstracts/variables" as *
+
+    
+@mixin respond($device)
+  @if $device == "tablet"
+    @media (min-width: $break-point-tablet)
+      @content
+  @else if $device == "desktop"
+    @media (min-width: $break-point-desktop)
+      @content
+
+@mixin edge-width
+  width: 90%
+  margin: 0 auto
+  @include respond("tablet")
+    width: 80%
+  @include respond("desktop")
+    width: 75%
+
+@mixin full
+  width: 100%

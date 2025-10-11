@@ -1,0 +1,24 @@
+{
+	"name": "product-list-with-cart-t2g",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"watch:sass": "sass --watch src/sass:src/css --load-path=src/sass",
+		"dev": "pnpm run watch:sass",
+		"build:sass": "sass --load-path=src/sass src/sass:dist/css --style=compressed",
+		"build:assets": "cp -r src/assets dist/assets",
+		"build:html": "cp src/index.html dist/index.html",
+		"build": "pnpm run build:sass && pnpm run build:assets && pnpm run build:html",
+		"deploy": "gh-pages -d dist"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.17.1",
+	"devDependencies": {
+		"concurrently": "^9.2.1",
+		"gh-pages": "^6.3.0",
+		"sass": "^1.93.2"
+	}
+}
