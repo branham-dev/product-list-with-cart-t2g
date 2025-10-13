@@ -5,11 +5,16 @@
 	"main": "index.js",
 	"scripts": {
 		"watch:sass": "sass --watch src/sass:src/css --load-path=src/sass",
-		"dev": "pnpm run watch:sass",
+		"watch:ts": "tsc --watch --outDir src/js",
+		"dev": "concurrently \"pnpm run watch:sass\" \"pnpm run watch:ts\"",
 		"build:sass": "sass --load-path=src/sass src/sass:dist/css --style=compressed",
 		"build:assets": "cp -r src/assets dist/assets",
 		"build:html": "cp src/index.html dist/index.html",
-		"build": "pnpm run build:sass && pnpm run build:assets && pnpm run build:html",
+		"build:ts": "tsc",
+		"build:ts:min": "terser src/js/index.js -o dist/js/index.min.js --compress --mangle --module",
+		"build:js:min": "terser dist/js/*.js -o dist/js/bundle.min.js --compress --mangle --module",
+		"build:data": "cp src/data.json dist/data.json",
+		"build": "pnpm run build:sass && pnpm run build:assets && pnpm run build:html && pnpm run build:ts && pnpm run build:data",
 		"deploy": "gh-pages -d dist"
 	},
 	"keywords": [],
@@ -19,6 +24,8 @@
 	"devDependencies": {
 		"concurrently": "^9.2.1",
 		"gh-pages": "^6.3.0",
-		"sass": "^1.93.2"
+		"sass": "^1.93.2",
+		"terser": "^5.44.0",
+		"typescript": "^5.9.3"
 	}
 }
