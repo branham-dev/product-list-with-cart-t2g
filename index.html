@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product List</title>
+		<link rel="stylesheet" href="./css/main.css" />
+	</head>
+	<body>
+		<header class="header">
+			<h1 class="header__title">Desserts</h1>
+		</header>
+		<main>
+			<section class="products main-flex-one" id="desserts-container"></section>
+			<section class="cart main-flex-two" id="to-hide-1">
+				<div class="cart__container">
+					<h2 class="cart__title" id="cart-quantity"></h2>
+					<figure class="cart__figure" id="empty-cart">
+						<img src="./assets/images/illustration-empty-cart.svg" alt="Empty illustration" />
+						<figcaption>Your added items will appear here</figcaption>
+					</figure>
+					<div class="cart-list__container">
+						<div class="cart__list">
+							<ul id="cart-list"></ul>
+						</div>
+						<div id="cart-render" class=""></div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<p>Coded by <span id="my-name"></span>.</p>
+		<script type="module" src="./js/index.js" defer></script>
+	</body>
+</html>
