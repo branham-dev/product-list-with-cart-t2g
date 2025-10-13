@@ -11,8 +11,6 @@
 		"build:assets": "cp -r src/assets dist/assets",
 		"build:html": "cp src/index.html dist/index.html",
 		"build:ts": "tsc",
-		"build:ts:min": "terser src/js/index.js -o dist/js/index.min.js --compress --mangle --module",
-		"build:js:min": "terser dist/js/*.js -o dist/js/bundle.min.js --compress --mangle --module",
 		"build:data": "cp src/data.json dist/data.json",
 		"build": "pnpm run build:sass && pnpm run build:assets && pnpm run build:html && pnpm run build:ts && pnpm run build:data",
 		"deploy": "gh-pages -d dist"
